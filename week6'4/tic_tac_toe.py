@@ -33,25 +33,10 @@ def proverka(board):
         return("ravenstvo")
     else:
         return "Nowinner"
-def igra(igrach,board,k):
-    izbor=0
-    while izbor<1 or izbor>9:
-        izbor=int(input("Enter a valid player "+igrach+"'s choice:"))
-        board=hod(igrach,izbor,board)
-        print(board_to_string(board))
-        if proverka(board)==igrach:
-            print("The winner is player",igrach,"!")
-            k+=1
-        elif proverka(board)=="ravenstvo":
-            print("There is no winner!")
-            k+=1
-        elif proverka(board)=="Nowinner":
-            print("Keep goin")
 
 
 board=[["-","-","-"],["-","-","-"],["-","-","-"]]
 print(board_to_string(board))
-k=0
 j=1
 while True:
     if j%2==1:
