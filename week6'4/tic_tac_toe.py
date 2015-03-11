@@ -10,8 +10,8 @@ def join(delimiter, items):
 def board_to_string(board):
     string=""
     for i in range(0,len(board)-1):
-        string+=str(join("|",board[i])+"\n")
-    string+=str(join("|",board[len(board)-1]))
+        string+="|"+str(join("|",board[i])+"|"+"\n")
+    string+="|"+str(join("|",board[len(board)-1]))+"|"
     return string
 
 def hod(igrach, chislo, board):
