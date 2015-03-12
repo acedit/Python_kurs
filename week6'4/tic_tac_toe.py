@@ -14,11 +14,15 @@ def board_to_string(board):
     string+="|"+str(join("|",board[len(board)-1]))+"|"
     return string
 
+def element(board,chislo):
+    a=(chislo-1)//3
+    b=chislo%3
+    return board[2-a][b-1]
+
 def hod(igrach, chislo, board):
     a=(chislo-1)//3
     b=chislo%3
-    red=board[2-a]
-    red[b-1]=str(igrach)
+    board[2-a][b-1]=str(igrach)
     return board
 
 def proverka(board):
@@ -41,8 +45,10 @@ j=1
 while True:
     if j%2==1:
         izbor=0
-        while izbor<1 or izbor>9:
-            izbor=int(input("Enter a valid player X's choice:"))
+        while (izbor<1 or izbor>9):
+            izbor=int(input("Enter a valid player X's choice(1%9):"))
+            if element(board,izbor)!="-":
+                izbor = 0
         board=hod("X",izbor,board)
         print(board_to_string(board))
         if proverka(board)=="X":
@@ -56,8 +62,10 @@ while True:
 
     if j%2==0:
         izbor=0
-        while izbor<1 or izbor>9:
-            izbor=int(input("Enter a valid player O's choice:"))
+        while (izbor<1 or izbor>9):
+            izbor=int(input("Enter a valid player O's choice(1%9):"))
+            if element(board,izbor)!="-":
+                izbor = 0
         board=hod("O",izbor,board)
         print(board_to_string(board))
         if proverka(board)=="O":
